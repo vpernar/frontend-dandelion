@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>Text similarity page</h3>
+  <div>
+    <form (submit)="textSimilarity()" class="mb-5">
+      <div class="form-group">
+        <label for="firstText">First text:</label>
+        <textarea id="firstText" class="form-control" name="firstText" placeholder="firstText" [(ngModel)]="firstText"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="secondText">Second text:</label>
+        <textarea id="secondText" class="form-control" name="secondText" placeholder="secondText" [(ngModel)]="secondText"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <p *ngIf="accuracy > 0">Accuracy: {{accuracy}}</p>
+  </div>
+</div>

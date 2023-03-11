@@ -1,0 +1,43 @@
+<div class="container">
+  <h3>Entity extraction</h3>
+  <div>
+    <form (submit)="entityExtraction()" class="mb-5">
+      <div class="form-group">
+        <label for="text">Text:</label>
+        <textarea id="text" class="form-control" name="text" placeholder="text" [(ngModel)]="text"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="minConfidence">Min confidence:</label>
+        <input type="range" class="form-range" min="0" max="1" step="0.1" value="0.5" id="minConfidence">
+      </div>
+
+      <div class="form-group">
+        <label for="image" class="form-check-label">Image:</label>
+        <input type="checkbox" class="form-check-input" id="image" name="image" [(ngModel)]="image">
+      </div>
+
+      <div class="form-group">
+        <label for="abstract" class="form-check-label">Abstract:</label>
+        <input type="checkbox" class="form-check-input" id="abstract" name="abstract" [(ngModel)]="abstract">
+      </div>
+
+      <div class="form-group">
+        <label for="category" class="form-check-label">Category:</label>
+        <input type="checkbox" class="form-check-input" id="category" name="category" [(ngModel)]="category">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let currAnnotation of annotations;">
+        <ul>
+          <li>Entity: {{currAnnotation.spot}}</li>
+          <li *ngIf="image"><img src="{{currAnnotation.image.thumbnail}}"/></li>
+          <li *ngIf="abstract">Abstract: {{currAnnotation.abstract}}</li>
+          <li *ngIf="category">Categories: {{currAnnotation.categories}}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

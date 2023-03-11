@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Sentiment analysis</h3>
+  <div>
+    <form (submit)="sentimentAnalysis()">
+      <div class="form-group">
+        <label for="text">Text:</label>
+        <textarea id="text" class="form-control" name="text" placeholder="text" [(ngModel)]="text"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="lang">Language:</label>
+
+
+        <select name="lang" class="form-select" id="lang">
+          <option value="en">en</option>
+          <option value="it">it</option>
+          <option value="auto">auto</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p [ngStyle]="{'background-color': color}">Result</p>
+    </form>
+  </div>
+</div>

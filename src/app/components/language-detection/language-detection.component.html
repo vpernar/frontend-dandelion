@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Language detection</h3>
+  <div>
+    <form (submit)="languageDetection()">
+      <div class="form-group" >
+        <label for="text">Text:</label>
+        <textarea id="text" class="form-control" name="text" placeholder="text" [(ngModel)]="text"></textarea>
+      </div>
+
+      <div class="form-group" >
+        <label for="clean">Clean:</label>
+        <input type="checkbox" class="form-check-input" id="clean" name="clean" [(ngModel)]="clean">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p *ngIf="detectedLanguages.length > 0">Detected languages:</p>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let lang of detectedLanguages;">
+          {{ lang.lang }} - {{ lang.confidence }}
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
